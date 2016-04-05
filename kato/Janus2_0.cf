@@ -1,0 +1,72 @@
+------------------------------------------------------------------------
+-- Reversible Programming Language Janus
+--
+-- Yokoyama, T., et al. (2008).
+-- Principles of a reversible programming language.
+-- Proceedings of the 5th conference on Computing frontiers, ACM: 43-54.
+------------------------------------------------------------------------
+
+Program.   Prog ::= ProcMain [Proc] ;
+
+terminator Proc "" ;
+
+Scalar.    Vdecl ::= Ident ;
+Array.     Vdecl ::= Ident "[" Integer "]" ;
+
+PMain.     ProcMain ::= "procedure" Ident "(" ")" [TypeDecl] [Stm] ;
+
+PProc.     Proc ::= "procedure" Ident "(" [TArgs] ")" [Stm] ;
+
+TDInt.     TypeDecl ::= "int"   Ident ;
+TDStack.   TypeDecl ::= "stack" Ident ;
+
+terminator TypeDecl "" ;
+
+Targs.     TArgs    ::= TypeDecl ;
+
+separator TArgs "," ;
+
+SAssign.   Stm ::= LExp ModOp Exp ;
+SIf.       Stm ::= "if" Exp "then" [Stm] "else" [Stm] "fi" Exp ;
+SLoop.     Stm ::= "from" Exp "do" [Stm] "loop" [Stm] "until" Exp ;
+SPush.     Stm ::= "push" "(" Ident "," Ident ")";
+SPop.      Stm ::= "pop"  "(" Ident "," Ident ")";
+SLocal.    Stm ::= "local" TypeDecl "=" Exp [Stm] "delocal" TypeDecl "=" Exp ;
+SCall.     Stm ::= "call"   Ident "(" [Ident] ")" ;
+SUncall.   Stm ::= "uncall" Ident "(" [Ident] ")" ;
+SSkip.     Stm ::= "skip" ;
+
+terminator Stm "" ;
+separator Ident "," ;
+
+LVar.      LExp ::= Ident ;
+LArr.      LExp ::= Ident "[" Exp "]" ;
+
+MAdd.      ModOp ::= "+=" ;
+MSub.      ModOp ::= "-=" ;
+MXor.      ModOp ::= "^=" ;
+
+EOr.       Exp1  ::= Exp1 "||" Exp2 ;
+EAnd.      Exp2  ::= Exp2 "&&" Exp3 ;
+EBor.      Exp3  ::= Exp3 "|" Exp4 ;
+EXor.      Exp4  ::= Exp4 "^" Exp5 ;
+EBand.     Exp5  ::= Exp5 "&" Exp6 ;
+EEq.       Exp6  ::= Exp6 "=" Exp7 ;
+ENeq.      Exp6  ::= Exp6 "!=" Exp7 ;
+ELt.       Exp8  ::= Exp8 "<" Exp9 ;
+EGt.       Exp8  ::= Exp8 ">" Exp9 ;
+ELe.       Exp8  ::= Exp8 "<=" Exp9 ;
+EGe.       Exp8  ::= Exp8 ">=" Exp9 ;
+EAdd.      Exp9  ::= Exp9 "+" Exp10 ;
+ESub.      Exp9  ::= Exp9 "-" Exp10 ;
+EMul.      Exp10 ::= Exp10 "*" Exp11 ;
+EDiv.      Exp10 ::= Exp10 "/" Exp11 ;
+EMod.      Exp10 ::= Exp10 "%" Exp11 ;
+EArr.      Exp11 ::= Ident "[" Exp "]" ;
+EVar.      Exp12 ::= Ident ;
+EInt.      Exp12 ::= Integer ;
+
+coercions Exp 12 ;
+
+comment "/*" "*/" ;
+comment "//";

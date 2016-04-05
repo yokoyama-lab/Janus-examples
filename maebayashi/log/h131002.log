@@ -1,0 +1,151 @@
+Script started on Wed Oct  2 17:16:41 2013
+[1m[7m%[27m[1m[0m                                                                                                                [0m[27m[24m[J[31m% [00m[K[79C[32m[~/Documents/RA/RA_Maebayashi][00m[109Dlls
+ChangeLog	h131002.log	worklog.txt
+[1m[7m%[27m[1m[0m                                                                                                                [0m[27m[24m[J[31m% [00m[K[79C[32m[~/Documents/RA/RA_Maebayashi][00m[109Dwwget https://raw.github.com/BNFC/bnfc/master/examples/C.cf
+--2013-10-02 17:16:58--  https://raw.github.com/BNFC/bnfc/master/examples/C.cf
+Resolving raw.github.com... 103.245.222.133
+Connecting to raw.github.com|103.245.222.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 12194 (12K) [text/plain]
+Saving to: ‘C.cf’
+
+ 0% [                                                                       ] 0           --.-K/s              100%[======================================================================>] 12,194      --.-K/s   in 0.001s  
+
+2013-10-02 17:16:58 (8.88 MB/s) - ‘C.cf’ saved [12194/12194]
+
+[1m[7m%[27m[1m[0m                                                                                                                [0m[27m[24m[J[31m% [00m[K[79C[32m[~/Documents/RA/RA_Maebayashi][00m[109Dmmkdir Haskell
+[1m[7m%[27m[1m[0m                                                                                                                [0m[27m[24m[J[31m% [00m[K[79C[32m[~/Documents/RA/RA_Maebayashi][00m[109Dccd Haskell
+[1m[7m%[27m[1m[0m                                                                                                                [0m[27m[24m[J[31m% [00m[K[71C[32m[~/Documents/RA/RA_Maebayashi/Haskell][00m[109Dbbnfc -m ../C.cf
+The BNF Converter, 2.5.0
+(c) Jonas Almström Duregård, Krasimir Angelov, Jean-Philippe Bernardy, Björn Bringert, Johan Broberg, Paul Callaghan, 
+    Grégoire Détrez, Markus Forsberg, Ola Frid, Peter Gammie, Thomas Hallgren, Patrik Jansson, 
+    Kristofer Johannisson, Antti-Juhani Kaijanaho, Ulf Norell, 
+    Michael Pellauer and Aarne Ranta 2002 - 2013.
+Free software under GNU General Public License (GPL).
+Bug reports to bnfc-dev@googlegroups.com.
+
+
+Reading grammar from ../C.cf
+
+230 rules accepted
+
+writing new file AbsC.hs
+writing new file LexC.x
+   (Use Alex 3.0 to compile.)
+writing new file ParC.y
+   (Tested with Happy 1.15)
+writing new file DocC.tex
+writing new file DocC.txt
+writing new file SkelC.hs
+writing new file PrintC.hs
+writing new file TestC.hs
+writing new file ErrM.hs
+writing new file Makefile
+Done!
+[1m[7m%[27m[1m[0m                                                                                                                [0m[27m[24m[J[31m% [00m[K[71C[32m[~/Documents/RA/RA_Maebayashi/Haskell][00m[109Dmmake
+happy -gca ParC.y
+unused terminals: 1
+shift/reduce conflicts:  1
+alex -g LexC.x
+ghc --make TestC.hs -o TestC
+[1 of 7] Compiling ErrM             ( ErrM.hs, ErrM.o )
+[2 of 7] Compiling AbsC             ( AbsC.hs, AbsC.o )
+[3 of 7] Compiling PrintC           ( PrintC.hs, PrintC.o )
+[4 of 7] Compiling SkelC            ( SkelC.hs, SkelC.o )
+[5 of 7] Compiling LexC             ( LexC.hs, LexC.o )
+[6 of 7] Compiling ParC             ( ParC.hs, ParC.o )
+[7 of 7] Compiling Main             ( TestC.hs, TestC.o )
+Linking TestC ...
+[1m[7m%[27m[1m[0m                                                                                                                [0m[27m[24m[J[31m% [00m[K[71C[32m[~/Documents/RA/RA_Maebayashi/Haskell][00m[109Dccd ..
+[1m[7m%[27m[1m[0m                                                                                                                [0m[27m[24m[J[31m% [00m[K[79C[32m[~/Documents/RA/RA_Maebayashi][00m[109Dmmkdir examples
+[1m[7m%[27m[1m[0m                                                                                                                [0m[27m[24m[J[31m% [00m[K[79C[32m[~/Documents/RA/RA_Maebayashi][00m[109Dccd examples
+[1m[7m%[27m[1m[0m                                                                                                                [0m[27m[24m[J[31m% [00m[K[70C[32m[~/Documents/RA/RA_Maebayashi/examples][00m[109Dwwget https://raw.github.com/BNFC/bnfc/master/examples/runtime.c
+--2013-10-02 17:17:56--  https://raw.github.com/BNFC/bnfc/master/examples/runtime.c
+Resolving raw.github.com... 103.245.222.133
+Connecting to raw.github.com|103.245.222.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 927 [text/plain]
+Saving to: ‘runtime.c’
+
+ 0% [                                                                       ] 0           --.-K/s              100%[======================================================================>] 927         --.-K/s   in 0s      
+
+2013-10-02 17:17:56 (26.0 MB/s) - ‘runtime.c’ saved [927/927]
+
+[1m[7m%[27m[1m[0m                                                                                                                [0m[27m[24m[J[31m% [00m[K[70C[32m[~/Documents/RA/RA_Maebayashi/examples][00m[109Dmmake runtime
+cc     runtime.c   -o runtime
+[1mruntime.c:10:3: [0m[0;1;35mwarning: [0m[1mimplicitly declaring library function 'exit' with type 'void (int)
+      __attribute__((noreturn))'[0m
+  exit(-1);
+[0;1;32m  ^
+[0m[1mruntime.c:10:3: [0m[0;1;30mnote: [0mplease include the header <stdlib.h> or explicitly provide a declaration for 'exit'[0m
+[1mruntime.c:21:10: [0m[0;1;35mwarning: [0m[1mimplicitly declaring library function 'strlen' with type
+      'unsigned long (const char *)'[0m
+      if(strlen(buf) > 0 && buf[strlen(buf)-1] == '\n')
+[0;1;32m         ^
+[0m[1mruntime.c:21:10: [0m[0;1;30mnote: [0mplease include the header <string.h> or explicitly provide a declaration for 'strlen'[0m
+2 warnings generated.
+[1m[7m%[27m[1m[0m                                                                                                                [0m[27m[24m[J[31m% [00m[K[70C[32m[~/Documents/RA/RA_Maebayashi/examples][00m[109D../runtime
+3
+21
+3.140000
+hello
+[1m[7m%[27m[1m[0m                                                                                                                [0m[27m[24m[J[31m% [00m[K[70C[32m[~/Documents/RA/RA_Maebayashi/examples][00m[109D.../Haskell[1m/[0m[0m/TestC[1m [0m[0m runtime.c[1m [0m[0m 
+runtime.c
+
+Parse Successful!
+
+[Abstract Syntax]
+
+Progr [Global (Declarators [Type Tchar] [OnlyDecl (NoPointer (InnitArray (Name (Ident "buf")) (Especial (Econst (Eint 128)))))]),Afunc (NewFunc [Type Tvoid] (NoPointer (OldFuncDec (Name (Ident "printError")))) (ScompTwo [ExprS (SexprTwo (Efunkpar (Evar (Ident "printf")) [Estring "Program called error!"])),ExprS (SexprTwo (Efunkpar (Evar (Ident "exit")) [Epreop Negative (Econst (Eint 1))]))])),Afunc (NewFunc [Type Tint] (NoPointer (OldFuncDec (Name (Ident "readInt")))) (ScompTwo [IterS (SiterThree SexprOne SexprOne (CompS (ScompFour [Declarators [Type Tint] [OnlyDecl (NoPointer (Name (Ident "v")))]] [ExprS (SexprTwo (Efunkpar (Evar (Ident "fgets")) [Evar (Ident "buf"),Ebytesexpr (Evar (Ident "buf")),Evar (Ident "stdin")])),SelS (SselTwo (Eeq (Econst (Eint 1)) (Efunkpar (Evar (Ident "sscanf")) [Evar (Ident "buf"),Estring "%d",Epreop Address (Evar (Ident "v"))])) (JumpS (SjumpFive (Evar (Ident "v")))) (CompS (ScompTwo [SelS (SselOne (Eland (Egrthen (Efunkpar (Evar (Ident "strlen")) [Evar (Ident "buf")]) (Econst (Eoctal (Octal "0")))) (Eeq (Earray (Evar (Ident "buf")) (Eminus (Efunkpar (Evar (Ident "strlen")) [Evar (Ident "buf")]) (Econst (Eint 1)))) (Econst (Echar '\n')))) (ExprS (SexprTwo (Eassign (Earray (Evar (Ident "buf")) (Eminus (Efunkpar (Evar (Ident "strlen")) [Evar (Ident "buf")]) (Econst (Eint 1)))) Assign (Econst (Eoctal (Octal "0"))))))),ExprS (SexprTwo (Efunkpar (Evar (Ident "printf")) [Estring "\"%s\" is not an int, try again:",Evar (Ident "buf")]))])))])))])),Afunc (NewFunc [Type Tdouble] (NoPointer (NewFuncDec (Name (Ident "readDouble")) (AllSpec (ParamDec (OnlyType [Type Tvoid]))))) (ScompTwo [IterS (SiterThree SexprOne SexprOne (CompS (ScompFour [Declarators [Type Tdouble] [OnlyDecl (NoPointer (Name (Ident "v")))]] [ExprS (SexprTwo (Efunkpar (Evar (Ident "fgets")) [Evar (Ident "buf"),Ebytesexpr (Evar (Ident "buf")),Evar (Ident "stdin")])),SelS (SselTwo (Eeq (Econst (Eint 1)) (Efunkpar (Evar (Ident "sscanf")) [Evar (Ident "buf"),Estring "%lg",Epreop Address (Evar (Ident "v"))])) (JumpS (SjumpFive (Evar (Ident "v")))) (CompS (ScompTwo [SelS (SselOne (Eland (Egrthen (Efunkpar (Evar (Ident "strlen")) [Evar (Ident "buf")]) (Econst (Eoctal (Octal "0")))) (Eeq (Earray (Evar (Ident "buf")) (Eminus (Efunkpar (Evar (Ident "strlen")) [Evar (Ident "buf")]) (Econst (Eint 1)))) (Econst (Echar '\n')))) (ExprS (SexprTwo (Eassign (Earray (Evar (Ident "buf")) (Eminus (Efunkpar (Evar (Ident "strlen")) [Evar (Ident "buf")]) (Econst (Eint 1)))) Assign (Econst (Eoctal (Octal "0"))))))),ExprS (SexprTwo (Efunkpar (Evar (Ident "printf")) [Estring "\"%s\" is not a double, try again:",Evar (Ident "buf")]))])))])))])),Afunc (NewFunc [Type Tvoid] (NoPointer (NewFuncDec (Name (Ident "printInt")) (AllSpec (ParamDec (TypeAndParam [Type Tint] (NoPointer (Name (Ident "v")))))))) (ScompTwo [ExprS (SexprTwo (Efunkpar (Evar (Ident "printf")) [Estring "%d\n",Evar (Ident "v")]))])),Afunc (NewFunc [Type Tvoid] (NoPointer (NewFuncDec (Name (Ident "printDouble")) (AllSpec (ParamDec (TypeAndParam [Type Tdouble] (NoPointer (Name (Ident "v")))))))) (ScompTwo [ExprS (SexprTwo (Efunkpar (Evar (Ident "printf")) [Estring "%f\n",Evar (Ident "v")]))])),Afunc (NewFunc [Type Tvoid] (NoPointer (NewFuncDec (Name (Ident "printString")) (AllSpec (ParamDec (TypeAndParam [Type Tchar] (BeginPointer Point (Name (Ident "s")))))))) (ScompTwo [ExprS (SexprTwo (Efunkpar (Evar (Ident "printf")) [Estring "%s\n",Evar (Ident "s")]))])),Afunc (NewFunc [Type Tint] (NoPointer (OldFuncDec (Name (Ident "main")))) (ScompTwo [ExprS (SexprTwo (Efunkpar (Evar (Ident "printInt")) [Etimes (Econst (Eint 7)) (Efunk (Evar (Ident "readInt")))])),ExprS (SexprTwo (Efunkpar (Evar (Ident "printDouble")) [Econst (Efloat 3.14)])),ExprS (SexprTwo (Efunkpar (Evar (Ident "printString")) [Estring "hello"]))]))]
+
+[Linearized tree]
+
+char buf [128];
+void printError () {
+  printf ("Program called error!");
+  exit (- 1);
+  }
+int readInt () {
+  for (;
+  ;
+  ) {
+    int v ;
+    fgets (buf, sizeof buf, stdin);
+    if (1 == sscanf (buf, "%d", & v)) return v ;
+    else {
+      if (strlen (buf)> 0 && buf [strlen (buf)- 1]== '\n')buf [strlen (buf)- 1]= 0 ;
+      printf ("\"%s\" is not an int, try again:", buf);
+      }
+    }
+  }
+double readDouble (void){
+  for (;
+  ;
+  ) {
+    double v ;
+    fgets (buf, sizeof buf, stdin);
+    if (1 == sscanf (buf, "%lg", & v)) return v ;
+    else {
+      if (strlen (buf)> 0 && buf [strlen (buf)- 1]== '\n')buf [strlen (buf)- 1]= 0 ;
+      printf ("\"%s\" is not a double, try again:", buf);
+      }
+    }
+  }
+void printInt (int v){
+  printf ("%d\n", v);
+  }
+void printDouble (double v){
+  printf ("%f\n", v);
+  }
+void printString (char * s){
+  printf ("%s\n", s);
+  }
+int main () {
+  printInt (7 * readInt ());
+  printDouble (3.14);
+  printString ("hello");
+  }
+
+[1m[7m%[27m[1m[0m                                                                                                                [0m[27m[24m[J[31m% [00m[K[70C[32m[~/Documents/RA/RA_Maebayashi/examples][00m[109Deexit
+
+Script done on Wed Oct  2 17:18:22 2013

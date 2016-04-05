@@ -1,0 +1,10 @@
+// Stack program in A Reversiable Programming Language and its Invertible Self-Interpreter.
+// T. Yokoyama and R. Gluck.
+// the 2007 ACM SIGPLAN symposium on Partial evaluation and semantics-based program manipulation.
+// 2007.
+// p.149
+
+procedure alloc_tmp
+    tmp_sp += 1
+    tmp <=> tmp_stack[tmp_sp]
+	

@@ -1,0 +1,41 @@
+// Sorting the List program in a time reversible language Janus
+// C. Lutz and H. Derby
+// Janus : a time-reversiable language. A letter to Launder.
+// 1982.
+// p.4	
+
+list[12]									;List to sort
+perm[12]									;Permutation done during sort.  Initially the identity permulation
+n											;Number of numbers
+i  j										;Loop counters
+
+procedure sort     							;Bubble sort list, permuting perm.
+     from  i=0
+     loop  j += n-2
+           from  j=n-2
+           loop  if    list[j] > list[j+1]
+                 then  list[j] : list[j+1]
+                       perm[j] : perm[j+1]
+                 fi    perm[j] > perm[j+1]
+                 j -= 1
+           until j=i-1
+		j -= i-1
+           i += 1
+     until i=n-1
+     		i -= n-1
+
+procedure makeidperm						;Add identity permutation to perm. Use to initialize perm
+     from  i=0
+
+loop  perm[i] += i
+           i += 1
+     until i=n
+     i -= n
+     
+procedure readlist     						;Use to initialize list by reading each entry from terminal
+     from  j=0
+     loop  read list[i]
+           i += 1
+     until i=n
+     i -= n
+
